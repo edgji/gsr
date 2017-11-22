@@ -11,6 +11,9 @@ import configureStore from "./configureStore";
 import registerServiceWorker from "./registerServiceWorker";
 import createHistory from "history/createBrowserHistory";
 
+// Import CSS reset and Global Styles
+import "./global-styles";
+
 const initialState = {};
 const history = createHistory();
 const store = configureStore(initialState, history);

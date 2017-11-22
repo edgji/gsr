@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Heading } from "rebass-emotion";
 
 class App extends Component {
   render() {
-    return <div className="App" />;
+    return <Heading>GetSetRep!</Heading>;
   }
 }
 
