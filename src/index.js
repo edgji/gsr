@@ -1,8 +1,26 @@
+// Needed for redux-saga es6 generator support
+import "babel-polyfill";
+
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import App from "./containers/App";
+import configureStore from "./configureStore";
+import registerServiceWorker from "./registerServiceWorker";
+import createHistory from "history/createBrowserHistory";
+
+const initialState = {};
+const history = createHistory();
+const store = configureStore(initialState, history);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById("root")
+);
 registerServiceWorker();
